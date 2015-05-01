@@ -22,7 +22,7 @@ MANUAL =
 # list them here.  This can be anything from header files, test patches,
 # documentation, etc.  README.txt and LICENSE.txt are required and therefore
 # automatically included
-EXTRA_DIST = helloworld.dsp
+EXTRA_DIST = 
 
 # unit tests and related files here, in the 'unittests' subfolder
 UNITTESTS = 
@@ -296,8 +296,8 @@ install-doc:
 	test -z "$(strip $(SOURCES) $(PDOBJECTS))" || \
 		$(INSTALL_DATA) $(HELPPATCHES) \
 			$(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)
-	$(INSTALL_DATA) README.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/README.txt
-	$(INSTALL_DATA) LICENSE.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/LICENSE.txt
+	test -e README.txt && $(INSTALL_DATA) README.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/README.txt
+	test -e LICENSE.txt && $(INSTALL_DATA) LICENSE.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/LICENSE.txt
 
 install-examples:
 	test -z "$(strip $(EXAMPLES))" || \

@@ -1,5 +1,5 @@
-#N canvas 703 339 450 300 10;
+#N canvas 702 334 450 300 10;
 #X obj 16 69 helloworld;
 #X msg 16 37 bang;
-#X text 13 10 prints "Hello world !!" when banged.;
+#X text 13 10 prints "Hello world!" when banged.;
 #X connect 1 0 0 0;
