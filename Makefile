@@ -296,8 +296,8 @@ install-doc:
 	test -z "$(strip $(SOURCES) $(PDOBJECTS))" || \
 		$(INSTALL_DATA) $(HELPPATCHES) \
 			$(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)
-	test -e README.txt && $(INSTALL_DATA) README.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/README.txt
-	test -e LICENSE.txt && $(INSTALL_DATA) LICENSE.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/LICENSE.txt
+	-test -e README.txt && $(INSTALL_DATA) README.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/README.txt
+	-test -e LICENSE.txt && $(INSTALL_DATA) LICENSE.txt $(DESTDIR)$(objectsdir)/$(LIBRARY_NAME)/LICENSE.txt
 
 install-examples:
 	test -z "$(strip $(EXAMPLES))" || \
