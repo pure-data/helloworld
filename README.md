@@ -2,7 +2,7 @@ An example Pure Data external using [pd-lib-builder](https://github.com/pure-dat
 
 	$ git clone --recursive https://github.com/pure-data/helloworld.git
 	$ cd helloworld
-	$ make pdincludepath=/path/to/pure-data/src
+	$ make pdincludepath=/path/to/pure-data/src/
 
 Make sure you use the `--recursive` flag when checking out the repository so that the pd-lib-builder dependency is also checked out.
 
