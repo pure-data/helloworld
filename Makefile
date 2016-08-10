@@ -12,4 +12,5 @@ class.sources = helloworld.c
 datafiles = helloworld-help.pd helloworld-meta.pd README.md
 
 # include Makefile.pdlibbuilder from submodule directory 'pd-lib-builder'
-include pd-lib-builder/Makefile.pdlibbuilder
+PDLIBBUILDER_DIR=pd-lib-builder/
+include $(PDLIBBUILDER_DIR)/Makefile.pdlibbuilder
