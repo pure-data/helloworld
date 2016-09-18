@@ -16,19 +16,15 @@ Make sure you use the `--recursive` flag when checking out the repository so tha
 
 _Note: The "Download zip" option on GitHub currently does not check out dependencies so pd-lib-builder will be missing in your download. The preferred method is to use git._
 
-By default, pd-lib-builder will attempt to auto-locate an install of Pure Data. You can manually specify the path to a version to build for using:
-
-    make pdincludepath=/path/to/pure-data/src/
-
-See `make help` for more details.
-
 ## Build ##
 
 You should have a copy of the pure-data source code - the following build command assumes it is in the `../pure-data` directory. [This page explains how you can get the pure-data source code](https://puredata.info/docs/developer/GettingPdSource).
 
-The following command will build the external and install the distributable files into a subdirectory called `build/helloworld`.
+By default, pd-lib-builder will attempt to auto-locate an install of Pure Data. The following command will build the external and install the distributable files into a subdirectory called `build/helloworld`.
 
     make install pdincludepath=../pure-data/src/ objectsdir=./build
+
+See `make help` for more details.
 
 ## Distribute ##
 
