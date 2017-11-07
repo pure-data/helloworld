@@ -3,6 +3,7 @@
 # settings and rules.
 
 # input source file (class name == source file basename)
+common.sources = swecl.c swedate.c swehel.c swehouse.c swejpl.c swemmoon.c swemplan.c swepcalc.c swepdate.c sweph.c swephlib.c
 class.sources = swisseph~.c
 
 # all extra files to be included in binary distribution of the library

@@ -15,13 +15,13 @@ void swisseph_tilde_bang(t_swisseph_tilde *x)
 void *swisseph_tilde_new(void)
 {  
   t_swisseph_tilde *x = (t_swisseph_tilde *)pd_new(swisseph_tilde_class);  
-  //swe_set_ephe_path(NULL);
+  swe_set_ephe_path(NULL);
   return (void *)x;  
 }
 
 void *swisseph_tilde_free(void)
 {
-  //swe_close();
+  swe_close();
 }  
 
 static t_int *swisseph_tilde_perform(t_int *w)
