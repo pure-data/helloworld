@@ -1,0 +1,12 @@
+#N canvas 533 183 450 300 10;
+#X msg 16 37 bang;
+#X obj 42 151 swephemer~;
+#X msg 129 78 -b 1974 6 27 0 \, -p 0 1;
+#X msg 68 41 -bj -3.0261e+06 \, -p 0 2 3;
+#X msg 7 110 1;
+#X text 257 43 julian;
+#X text 299 80 gregorian;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
