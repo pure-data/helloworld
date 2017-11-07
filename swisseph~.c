@@ -4,7 +4,8 @@
 static t_class *swisseph_tilde_class;  
  
 typedef struct _swisseph_tilde {  
-  t_object  x_obj;  
+  t_object  x_obj;
+  t_sample x_sample_rate;
 } t_swisseph_tilde;
  
 void swisseph_tilde_bang(t_swisseph_tilde *x)  
@@ -14,7 +15,9 @@ void swisseph_tilde_bang(t_swisseph_tilde *x)
  
 void *swisseph_tilde_new(void)
 {  
-  t_swisseph_tilde *x = (t_swisseph_tilde *)pd_new(swisseph_tilde_class);  
+  t_swisseph_tilde *x = (t_swisseph_tilde *)pd_new(swisseph_tilde_class);
+  x->x_sample_rate = sys_getsr();
+  outlet_new(&x->x_obj, gensym("signal"));
   swe_set_ephe_path(NULL);
   return (void *)x;  
 }
