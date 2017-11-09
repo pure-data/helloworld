@@ -6,7 +6,15 @@
 #X msg 7 110 1;
 #X text 257 43 julian;
 #X text 299 80 gregorian;
+#X msg 152 126 -bj "23524352.23432";
+#X msg 328 120 -bj "1111";
+#X msg 192 175 -bj 1235;
+#X msg 121 261 -path /home/jwmatthys/Downloads;
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
