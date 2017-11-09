@@ -24,6 +24,7 @@
 #X text 263 60 symbol in quotes);
 #X text 259 269 path to ephemera datafiles;
 #X text 305 10 not working?;
+#X msg 355 114 -p 4;
 #X connect 0 0 12 0;
 #X connect 2 0 12 0;
 #X connect 3 0 12 0;
@@ -36,3 +37,4 @@
 #X connect 12 1 6 0;
 #X connect 12 2 7 0;
 #X connect 12 3 16 0;
+#X connect 25 0 12 0;

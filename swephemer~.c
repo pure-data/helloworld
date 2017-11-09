@@ -14,7 +14,6 @@ typedef struct _swephemer_tilde {
         double x_jul_date;
         t_float x_step;
         long x_body;
-        short x_num_body;
         bool x_dsp_flag;
         bool x_heliocentric;
         long x_iflag;
@@ -25,7 +24,7 @@ void swephemer_tilde_bang(t_swephemer_tilde *x)
 {
         double x2[6];
         char serr[256];
-        long iflgret = swe_calc(x->x_jul_date, x->x_num_body, x->x_iflag, x2, serr);
+        long iflgret = swe_calc(x->x_jul_date, x->x_body, x->x_iflag, x2, serr);
         if (iflgret < 0) error("%s", serr);
         else
         {
