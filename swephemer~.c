@@ -38,7 +38,7 @@ void swephemer_tilde_bang(t_swephemer_tilde *x)
 void swephemer_tilde_float(t_swephemer_tilde *x, t_float f)
 {
         x->x_jul_date += f;
-        //post ("Received adjustment value %+g. New date is %10.4f", f, x->x_jul_date);
+        post ("Received adjustment value %+g. New date is %10.4f", f, x->x_jul_date);
         swephemer_tilde_bang(x);
 }
 
@@ -65,7 +65,7 @@ void swephemer_tilde_bj(t_swephemer_tilde *x, t_symbol *s, short argc, t_atom *a
         {
         case A_FLOAT:
                 x->x_jul_date = argv[0].a_w.w_float;
-                //post ("Set date to %10.4f", x->x_jul_date);
+                post ("Set date to %10.4f", x->x_jul_date);
                 outlet_float (x->x_date_out, x->x_jul_date);
                 break;
         case A_SYMBOL:
@@ -74,7 +74,7 @@ void swephemer_tilde_bj(t_swephemer_tilde *x, t_symbol *s, short argc, t_atom *a
                 sprintf(subbuf, "%.*s", len-2, argv[0].a_w.w_symbol->s_name+1);
                 strval = atof(subbuf);
                 x->x_jul_date = strval;
-                //post ("Set date to %10.4f", x->x_jul_date);
+                post ("Set date to %10.4f", x->x_jul_date);
                 outlet_float (x->x_date_out, x->x_jul_date);
                 free (subbuf);
                 break;
@@ -91,7 +91,7 @@ void swephemer_tilde_b(t_swephemer_tilde *x, t_symbol *s, short argc, t_atom *ar
         long d = (argc > 2 && argv[2].a_type == A_FLOAT) ? argv[2].a_w.w_float : 1;
         double h = (argc > 3 && argv[3].a_type == A_FLOAT) ? argv[3].a_w.w_float : 0;
         x->x_jul_date = swe_julday(y,m,d,h,SE_GREG_CAL);
-        //post ("Set %d.%d.%d.%f to Julian date %10.4f", y, m, d, h, x->x_jul_date);
+        post ("Set %d.%d.%d.%f to Julian date %10.4f", y, m, d, h, x->x_jul_date);
         outlet_float (x->x_date_out, x->x_jul_date);
 }
 
@@ -147,11 +147,11 @@ void *swephemer_tilde_new(t_symbol *s, int argc, t_atom *argv)
         }
         x->x_dsp_flag = false;
         x->x_sample_rate = sys_getsr();
+        outlet_new(&x->x_obj, gensym("signal"));
         x->x_longitude_out = outlet_new(&x->x_obj, &s_float);
         x->x_latitude_out = outlet_new(&x->x_obj, &s_float);
         x->x_distance_out = outlet_new(&x->x_obj, &s_float);
         x->x_date_out = outlet_new(&x->x_obj, &s_float);
-        outlet_new(&x->x_obj, gensym("signal"));
         x->x_body = 0;
         x->x_iflag = 0;
         x->x_step = 0;
@@ -167,8 +167,8 @@ void swephemer_tilde_free(t_swephemer_tilde *x)
 
 static t_int *swephemer_tilde_perform(t_int *w)
 {
-        t_swephemer_tilde *x = (t_swephemer_tilde *)(w[1]);
-        if (x->x_dsp_flag == true)
+        //t_swephemer_tilde *x = (t_swephemer_tilde *)(w[1]);
+        //if (x->x_dsp_flag == true)
         {
 
         }
@@ -177,10 +177,10 @@ static t_int *swephemer_tilde_perform(t_int *w)
 
 static void swephemer_tilde_dsp(t_swephemer_tilde *x, t_signal **sp)
 {
-        t_int dsp_add_args [3];
-        t_int vector_size = sp[0]->s_n;
+        //t_int dsp_add_args [3];
+        //t_int vector_size = sp[0]->s_n;
 
-        //dsp_add(swephemer_tilde_perform, 4, x, sp[0]->s_vec, sp[1]->s_vec, sp[0]->s_n);
+        dsp_add(swephemer_tilde_perform, 4, x, sp[0]->s_vec, sp[1]->s_vec, sp[0]->s_n);
 }
 
 void swephemer_tilde_setup(void) {
