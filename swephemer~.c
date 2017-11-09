@@ -116,10 +116,9 @@ void swephemer_tilde_helflag(t_swephemer_tilde *x)
 {
         if (x->x_heliocentric == false) x->x_heliocentric = true;
         else x->x_heliocentric = false;
-        x->x_iflag = (x->x_heliocentric == true) ? SEFLG_SWIEPH|SEFLG_HELCTR : 0;
+        x->x_iflag = (x->x_heliocentric == true) ? SEFLG_HELCTR : 0;
         post ("Setting heliocentric to %s", (x->x_heliocentric == true) ? "true" : "false");
 }
-
 
 void *swephemer_tilde_new(t_symbol *s, int argc, t_atom *argv)
 {
